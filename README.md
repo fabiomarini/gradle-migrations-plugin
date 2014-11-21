@@ -1,7 +1,7 @@
 Gradle Migrations Plugin [![Build Status](https://travis-ci.org/marceloemanoel/gradle-migrations-plugin.png?branch=master)](https://travis-ci.org/marceloemanoel/gradle-migrations-plugin?branch=master)
 =============================
 
-Provide gradle build integration with [mybatis migrations](https://code.google.com/p/mybatis/wiki/Migration). 
+Provide gradle build integration with [mybatis migrations](http://mybatis.github.io/migrations). 
 The plugin adds a group of tasks named **Migrations** composed by:
 
 <table width="100%">
@@ -71,7 +71,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath "com.github.marceloemanoel:gradle-migrations:0.2.1"
+    classpath "com.github.marceloemanoel:gradle-migrations:0.3.0"
   }
 }
 
@@ -163,8 +163,8 @@ without the path or ".properties" part (the default value is "development").
 This directory contains your migration SQL files. These are the files that contain your DDL to both
 upgrade and downgrade your database structure. By default, the directory will contain the script to
 create the changelog table, plus one empty example migration script. To create a new migration script,
-use the [migrateNew](#migratenew) command. To run all pending migrations in order, use the [migrateUp](#migrateup) 
-command. To undo the last migration applied, use the [migrateDown](#migratedown) command etc.
+use the [migrateNew](#migratenew) command. To run all pending migrations in order, use the [migrateUp](#migrateup-and-migratedown) 
+command. To undo the last migration applied, use the [migrateDown](#migrateup-and-migratedown) command etc.
 
 migrateBootstrap
 ----------------
