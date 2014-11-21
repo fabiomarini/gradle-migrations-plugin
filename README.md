@@ -47,6 +47,16 @@ The plugin adds a group of tasks named **Migrations** composed by:
       <td>Rewinds the database to a previous stage.</td>
       <td>steps</td>
     </tr>
+    <tr>
+      <td><a href="#migratepending">migratePending</a></td>
+      <td>Applies old pending migrations.</td>
+      <td>steps</td>
+    </tr>
+    <tr>
+      <td><a href="#migratescript">migrateScript</a></td>
+      <td>Extracts a range of migrations as a single script.</td>
+      <td>steps</td>
+    </tr>
   </tbody>
 </table>
 
@@ -293,6 +303,27 @@ It is possible to abreviate it like this:
 or 
 
 > gradle migrateDown -Ps=3
+
+migratePending
+-------------------------
+
+This task applies pending migrations even if there are migrations with a greater id already applied.
+Use this task with caution because it can break the migration flow.
+
+Example usage
+
+> gradle migratePending
+
+
+migrateScript
+-------------------------
+
+The `migrateScript` task allows the extraction of a range of migrations as a single script to be applied manually.
+This is useful when the target environment is not directly accessible from the computer that runs the build.
+
+The task takes the `v1` and `v2` that identify the start and ending version to extract as script.
+
+> gradle migrateScript -Pv1=<start version> -Pv2=<end version>
 
 
 License

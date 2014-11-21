@@ -14,7 +14,7 @@ class BootstrapTask extends MigrationTask {
 
     @TaskAction
     void bootstrap() {
-        def command = new BootstrapCommand(baseDir, environment, force)
+        def command = new BootstrapCommand(selectedOptions)
         CommandHelper.updateDriverClassLoader(project, command)
         command.execute()
     }

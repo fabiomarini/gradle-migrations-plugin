@@ -5,7 +5,7 @@ apply plugin: "eclipse"
 
 group = "com.github.marceloemanoel"
 archivesBaseName="gradle-migrations"
-version="0.2.1"
+version="0.2.2"
 
 def sonatypeUsername = hasProperty("sonatypeUsername") ? sonatypeUsername : ""
 def sonatypePassword = hasProperty("sonatypePassword") ? sonatypePassword : ""
@@ -23,13 +23,14 @@ dependencies {
     compile gradleApi()
     compile localGroovy() 
     
-    compile "org.mybatis:mybatis:3.0.6"
+    compile "org.mybatis:mybatis:3.2.4"
+    compile "org.mybatis:mybatis-migrations:3.2.0"
     testCompile 'junit:junit:4.11'
     
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "1.6"
+    gradleVersion = "2.1"
 }
 
 tasks.withType(Compile) {

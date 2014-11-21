@@ -7,6 +7,8 @@ import com.github.marceloemanoel.gradle.migrations.tasks.BootstrapTask
 import com.github.marceloemanoel.gradle.migrations.tasks.DownTask
 import com.github.marceloemanoel.gradle.migrations.tasks.InitTask
 import com.github.marceloemanoel.gradle.migrations.tasks.NewTask
+import com.github.marceloemanoel.gradle.migrations.tasks.PendingTask
+import com.github.marceloemanoel.gradle.migrations.tasks.ScriptTask
 import com.github.marceloemanoel.gradle.migrations.tasks.StatusTask
 import com.github.marceloemanoel.gradle.migrations.tasks.UpTask
 
@@ -25,7 +27,7 @@ class MigrationsPlugin implements Plugin<Project> {
         }
         
         project.dependencies {
-            "migrations"  "org.mybatis:mybatis:3.0.6"
+            "migrations"  "org.mybatis:mybatis:3.2.4"
         }
 
         project.task('migrateInit', type: InitTask)
@@ -48,5 +50,8 @@ class MigrationsPlugin implements Plugin<Project> {
         
         project.task("migrateUp", type: UpTask)
         project.task("migrateDown", type: DownTask)
+        project.task("migratePending", type: PendingTask)
+		
+        project.task("migrateScript", type: ScriptTask)
     }
 }

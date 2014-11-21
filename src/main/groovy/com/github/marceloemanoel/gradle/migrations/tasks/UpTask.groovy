@@ -14,7 +14,7 @@ class UpTask extends SteppableMigrationTask {
 
     @TaskAction
     def executeMigrations() {
-        def command = new UpCommand(baseDir, environment, force)
+        def command = new UpCommand(selectedOptions)
         CommandHelper.updateDriverClassLoader(getProject(), command)
         command.execute(steps)
     }

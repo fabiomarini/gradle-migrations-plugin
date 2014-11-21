@@ -25,7 +25,7 @@ class InitTask extends MigrationTask {
             }
         }
 
-        new InitializeCommand(baseDir, environment, force).execute()
+        new InitializeCommand(selectedOptions).execute()
 
         project.file(new File(baseDir, "drivers")).deleteDir()
         project.file(new File(baseDir, "README")).delete()

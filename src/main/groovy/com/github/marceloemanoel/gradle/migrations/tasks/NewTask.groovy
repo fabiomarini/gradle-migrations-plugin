@@ -24,7 +24,8 @@ class NewTask extends MigrationTask {
             throw new CommandLineArgumentException(msg)
         }
 
-        def command = new NewCommand(baseDir, environment, template, force)
+		selectedOptions.template = template
+        def command = new NewCommand(selectedOptions)
         CommandHelper.updateDriverClassLoader(project, command)
         command.execute(fileDescription)
     }

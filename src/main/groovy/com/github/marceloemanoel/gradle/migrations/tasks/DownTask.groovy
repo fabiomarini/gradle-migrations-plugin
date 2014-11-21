@@ -14,7 +14,7 @@ class DownTask extends SteppableMigrationTask {
 
     @TaskAction
     void status() {
-        def command = new DownCommand(baseDir, environment, force)
+        def command = new DownCommand(selectedOptions)
         CommandHelper.updateDriverClassLoader(project, command)
         command.execute(steps)
     }
